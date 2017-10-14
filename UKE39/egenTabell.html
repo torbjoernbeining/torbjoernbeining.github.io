@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Champions League</title>
+    <style>
+
+        body{
+            font-family: Helvetica;
+            font-size: 400;
+        }
+
+        main{
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 16px;
+        }
+
+
+        h1{
+            font-family: Helvetica;
+            font-size: 20px;
+            background-color: #2a2f32;
+            color: #fff;
+            padding: 20px;
+        }
+
+        table{
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        tbody tr:nth-child(1), tbody tr:nth-child(2) {
+            background-color: #81D6AC;
+        }
+
+        tbody tr:nth-child(3){
+            background-color: #B2BFD0;
+        }
+
+
+        td, th{
+            padding: 8px 12px;  /*8px over oug under, 12px på sidene*/
+            border-bottom: 1px solid #e6e6e6;
+            text-align: left;
+        }
+
+
+        td:nth-child(9), td:nth-child(10), td:nth-child(11), td:nth-child(12),td:nth-child(13){
+            background-color: #dddddd;
+        }
+
+        td:nth-child(19), td:nth-child(20){
+            background-color: #dddddd;
+        }
+        tbody tr:nth-child(3) td:nth-child(9),
+        tbody tr:nth-child(3) td:nth-child(10),
+        tbody tr:nth-child(3) td:nth-child(11),
+        tbody tr:nth-child(3) td:nth-child(12),
+        tbody tr:nth-child(3) td:nth-child(13){
+            background-color: darkgrey;
+        }
+
+        tbody tr:nth-child(3) td:nth-child(19),
+        tbody tr:nth-child(3) td:nth-child(20){
+            background-color: darkgrey;
+        }
+
+        tbody tr:nth-child(4) td:nth-child(9),
+        tbody tr:nth-child(4) td:nth-child(10),
+        tbody tr:nth-child(4) td:nth-child(11),
+        tbody tr:nth-child(4) td:nth-child(12),
+        tbody tr:nth-child(4) td:nth-child(13){
+            background-color: lightcyan;
+        }
+
+        tbody tr:nth-child(4) td:nth-child(19),
+        tbody tr:nth-child(4) td:nth-child(20){
+            background-color: lightcyan;
+        }
+
+    </style>
+</head>
+<body>
+
+
+
+<main>
+
+    <article>
+        <h1>GROUP A</h1>
+        <table>
+
+            <thead>
+
+            <tr>
+                <th>POS</th>
+                <th>TEAM</th>
+                <th>P</th>
+                <th>W</th>
+                <th>D</th>
+                <th>L</th>
+                <th>F</th>
+                <th>A</th>
+
+                <th>W</th>
+                <th>D</th>
+                <th>L</th>
+                <th>F</th>
+                <th>A</th>
+
+                <th>W</th>
+                <th>D</th>
+                <th>L</th>
+                <th>F</th>
+                <th>A</th>
+
+                <th>GD</th>
+                <th>PTS</th>
+            </tr>
+
+            </thead>
+
+            <tbody>
+
+            <tr>
+                <td><b>1</b></td>
+                <td><b>Manchester United</b></td>
+                <td>2</td>
+                <td>2</td>
+                <td>0</td>
+                <td>0</td>
+                <td>7</td>
+                <td>1</td>
+
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>3</td>
+                <td>0</td>
+
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>4</td>
+                <td>1</td>
+
+                <td><b>6</b></td>
+                <td><b>6</b></td>
+            </tr>
+
+            <tr>
+                <td> <b>2</b> </td>
+                <td> <b>FC Basel</b> </td>
+                <td>2</td>
+                <td>1</td>
+                <td>0</td>
+                <td>1</td>
+                <td>5</td>
+                <td>3</td>
+
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>5</td>
+                <td>0</td>
+
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+                <td>3</td>
+
+                <td><b>2</b></td>
+                <td><b>3</b></td>
+            </tr>
+
+            <tr>
+                <td> <b>3</b> </td>
+                <td> <b>CSKA Moscow</b> </td>
+                <td>2</td>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>3</td>
+                <td>5</td>
+
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+                <td>4</td>
+
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>2</td>
+                <td>1</td>
+
+                <td><b>-2</b></td>
+                <td><b>3</b></td>
+            </tr>
+
+            <tr>
+                <td> <b>4</b> </td>
+                <td> <b>Benfica</b> </td>
+                <td>2</td>
+                <td>0</td>
+                <td>0</td>
+                <td>2</td>
+                <td>1</td>
+                <td>7</td>
+
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+                <td>2</td>
+
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+                <td>5</td>
+
+                <td><b>-6</b></td>
+                <td><b>0</b></td>
+            </tr>
+
+            </tbody>
+
+
+
+
+        </table>
+    </article>
+
+
+    <article>
+        <h1>GROUP B</h1>
+        <table>
+
+            <thead>
+
+            <tr>
+                <th>POS</th>
+                <th>TEAM</th>
+                <th>P</th>
+                <th>W</th>
+                <th>D</th>
+                <th>L</th>
+                <th>F</th>
+                <th>A</th>
+
+                <th>W</th>
+                <th>D</th>
+                <th>L</th>
+                <th>F</th>
+                <th>A</th>
+
+                <th>W</th>
+                <th>D</th>
+                <th>L</th>
+                <th>F</th>
+                <th>A</th>
+
+                <th>GD</th>
+                <th>PTS</th>
+            </tr>
+
+            </thead>
+
+            <tbody>
+
+            <tr>
+                <td><b>1</b></td>
+                <td><b>Manchester United</b></td>
+                <td>2</td>
+                <td>2</td>
+                <td>0</td>
+                <td>0</td>
+                <td>7</td>
+                <td>1</td>
+
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>3</td>
+                <td>0</td>
+
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>4</td>
+                <td>1</td>
+
+                <td><b>6</b></td>
+                <td><b>6</b></td>
+            </tr>
+
+            <tr>
+                <td> <b>2</b> </td>
+                <td> <b>FC Basel</b> </td>
+                <td>2</td>
+                <td>1</td>
+                <td>0</td>
+                <td>1</td>
+                <td>5</td>
+                <td>3</td>
+
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>5</td>
+                <td>0</td>
+
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+                <td>3</td>
+
+                <td><b>2</b></td>
+                <td><b>3</b></td>
+            </tr>
+
+            <tr>
+                <td> <b>3</b> </td>
+                <td> <b>CSKA Moscow</b> </td>
+                <td>2</td>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>3</td>
+                <td>5</td>
+
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+                <td>4</td>
+
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>2</td>
+                <td>1</td>
+
+                <td><b>-2</b></td>
+                <td><b>3</b></td>
+            </tr>
+
+            <tr>
+                <td> <b>4</b> </td>
+                <td> <b>Benfica</b> </td>
+                <td>2</td>
+                <td>0</td>
+                <td>0</td>
+                <td>2</td>
+                <td>1</td>
+                <td>7</td>
+
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+                <td>2</td>
+
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+                <td>5</td>
+
+                <td><b>-6</b></td>
+                <td><b>0</b></td>
+            </tr>
+
+            </tbody>
+
+
+
+
+        </table>
+    </article>
+
+    <article>
+        <h1>GROUP C</h1>
+        <table>
+
+            <thead>
+
+            <tr>
+                <th>POS</th>
+                <th>TEAM</th>
+                <th>P</th>
+                <th>W</th>
+                <th>D</th>
+                <th>L</th>
+                <th>F</th>
+                <th>A</th>
+
+                <th>W</th>
+                <th>D</th>
+                <th>L</th>
+                <th>F</th>
+                <th>A</th>
+
+                <th>W</th>
+                <th>D</th>
+                <th>L</th>
+                <th>F</th>
+                <th>A</th>
+
+                <th>GD</th>
+                <th>PTS</th>
+            </tr>
+
+            </thead>
+
+            <tbody>
+
+            <tr>
+                <td><b>1</b></td>
+                <td><b>Manchester United</b></td>
+                <td>2</td>
+                <td>2</td>
+                <td>0</td>
+                <td>0</td>
+                <td>7</td>
+                <td>1</td>
+
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>3</td>
+                <td>0</td>
+
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>4</td>
+                <td>1</td>
+
+                <td><b>6</b></td>
+                <td><b>6</b></td>
+            </tr>
+
+            <tr>
+                <td> <b>2</b> </td>
+                <td> <b>FC Basel</b> </td>
+                <td>2</td>
+                <td>1</td>
+                <td>0</td>
+                <td>1</td>
+                <td>5</td>
+                <td>3</td>
+
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>5</td>
+                <td>0</td>
+
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+                <td>3</td>
+
+                <td><b>2</b></td>
+                <td><b>3</b></td>
+            </tr>
+
+            <tr>
+                <td> <b>3</b> </td>
+                <td> <b>CSKA Moscow</b> </td>
+                <td>2</td>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>3</td>
+                <td>5</td>
+
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+                <td>4</td>
+
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>2</td>
+                <td>1</td>
+
+                <td><b>-2</b></td>
+                <td><b>3</b></td>
+            </tr>
+
+            <tr>
+                <td> <b>4</b> </td>
+                <td> <b>Benfica</b> </td>
+                <td>2</td>
+                <td>0</td>
+                <td>0</td>
+                <td>2</td>
+                <td>1</td>
+                <td>7</td>
+
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+                <td>2</td>
+
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+                <td>5</td>
+
+                <td><b>-6</b></td>
+                <td><b>0</b></td>
+            </tr>
+
+            </tbody>
+
+
+
+
+        </table>
+    </article>
+
+    <article>
+        <h1>GROUP D</h1>
+        <table>
+
+            <thead>
+
+            <tr>
+                <th>POS</th>
+                <th>TEAM</th>
+                <th>P</th>
+                <th>W</th>
+                <th>D</th>
+                <th>L</th>
+                <th>F</th>
+                <th>A</th>
+
+                <th>W</th>
+                <th>D</th>
+                <th>L</th>
+                <th>F</th>
+                <th>A</th>
+
+                <th>W</th>
+                <th>D</th>
+                <th>L</th>
+                <th>F</th>
+                <th>A</th>
+
+                <th>GD</th>
+                <th>PTS</th>
+            </tr>
+
+            </thead>
+
+            <tbody>
+
+            <tr>
+                <td><b>1</b></td>
+                <td><b>Manchester United</b></td>
+                <td>2</td>
+                <td>2</td>
+                <td>0</td>
+                <td>0</td>
+                <td>7</td>
+                <td>1</td>
+
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>3</td>
+                <td>0</td>
+
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>4</td>
+                <td>1</td>
+
+                <td><b>6</b></td>
+                <td><b>6</b></td>
+            </tr>
+
+            <tr>
+                <td> <b>2</b> </td>
+                <td> <b>FC Basel</b> </td>
+                <td>2</td>
+                <td>1</td>
+                <td>0</td>
+                <td>1</td>
+                <td>5</td>
+                <td>3</td>
+
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>5</td>
+                <td>0</td>
+
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+                <td>3</td>
+
+                <td><b>2</b></td>
+                <td><b>3</b></td>
+            </tr>
+
+            <tr>
+                <td> <b>3</b> </td>
+                <td> <b>CSKA Moscow</b> </td>
+                <td>2</td>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>3</td>
+                <td>5</td>
+
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+                <td>4</td>
+
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>2</td>
+                <td>1</td>
+
+                <td><b>-2</b></td>
+                <td><b>3</b></td>
+            </tr>
+
+            <tr>
+                <td> <b>4</b> </td>
+                <td> <b>Benfica</b> </td>
+                <td>2</td>
+                <td>0</td>
+                <td>0</td>
+                <td>2</td>
+                <td>1</td>
+                <td>7</td>
+
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+                <td>2</td>
+
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+                <td>5</td>
+
+                <td><b>-6</b></td>
+                <td><b>0</b></td>
+            </tr>
+
+            </tbody>
+
+
+
+
+        </table>
+    </article>
+
+    <article>
+        <h1>GROUP E</h1>
+        <table>
+
+            <thead>
+
+            <tr>
+                <th>POS</th>
+                <th>TEAM</th>
+                <th>P</th>
+                <th>W</th>
+                <th>D</th>
+                <th>L</th>
+                <th>F</th>
+                <th>A</th>
+
+                <th>W</th>
+                <th>D</th>
+                <th>L</th>
+                <th>F</th>
+                <th>A</th>
+
+                <th>W</th>
+                <th>D</th>
+                <th>L</th>
+                <th>F</th>
+                <th>A</th>
+
+                <th>GD</th>
+                <th>PTS</th>
+            </tr>
+
+            </thead>
+
+            <tbody>
+
+            <tr>
+                <td><b>1</b></td>
+                <td><b>Manchester United</b></td>
+                <td>2</td>
+                <td>2</td>
+                <td>0</td>
+                <td>0</td>
+                <td>7</td>
+                <td>1</td>
+
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>3</td>
+                <td>0</td>
+
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>4</td>
+                <td>1</td>
+
+                <td><b>6</b></td>
+                <td><b>6</b></td>
+            </tr>
+
+            <tr>
+                <td> <b>2</b> </td>
+                <td> <b>FC Basel</b> </td>
+                <td>2</td>
+                <td>1</td>
+                <td>0</td>
+                <td>1</td>
+                <td>5</td>
+                <td>3</td>
+
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>5</td>
+                <td>0</td>
+
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+                <td>3</td>
+
+                <td><b>2</b></td>
+                <td><b>3</b></td>
+            </tr>
+
+            <tr>
+                <td> <b>3</b> </td>
+                <td> <b>CSKA Moscow</b> </td>
+                <td>2</td>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>3</td>
+                <td>5</td>
+
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+                <td>4</td>
+
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>2</td>
+                <td>1</td>
+
+                <td><b>-2</b></td>
+                <td><b>3</b></td>
+            </tr>
+
+            <tr>
+                <td> <b>4</b> </td>
+                <td> <b>Benfica</b> </td>
+                <td>2</td>
+                <td>0</td>
+                <td>0</td>
+                <td>2</td>
+                <td>1</td>
+                <td>7</td>
+
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+                <td>2</td>
+
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+                <td>5</td>
+
+                <td><b>-6</b></td>
+                <td><b>0</b></td>
+            </tr>
+
+            </tbody>
+
+
+
+
+        </table>
+    </article>
+
+    <article>
+        <h1>GROUP F</h1>
+        <table>
+
+            <thead>
+
+            <tr>
+                <th>POS</th>
+                <th>TEAM</th>
+                <th>P</th>
+                <th>W</th>
+                <th>D</th>
+                <th>L</th>
+                <th>F</th>
+                <th>A</th>
+
+                <th>W</th>
+                <th>D</th>
+                <th>L</th>
+                <th>F</th>
+                <th>A</th>
+
+                <th>W</th>
+                <th>D</th>
+                <th>L</th>
+                <th>F</th>
+                <th>A</th>
+
+                <th>GD</th>
+                <th>PTS</th>
+            </tr>
+
+            </thead>
+
+            <tbody>
+
+            <tr>
+                <td><b>1</b></td>
+                <td><b>Manchester United</b></td>
+                <td>2</td>
+                <td>2</td>
+                <td>0</td>
+                <td>0</td>
+                <td>7</td>
+                <td>1</td>
+
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>3</td>
+                <td>0</td>
+
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>4</td>
+                <td>1</td>
+
+                <td><b>6</b></td>
+                <td><b>6</b></td>
+            </tr>
+
+            <tr>
+                <td> <b>2</b> </td>
+                <td> <b>FC Basel</b> </td>
+                <td>2</td>
+                <td>1</td>
+                <td>0</td>
+                <td>1</td>
+                <td>5</td>
+                <td>3</td>
+
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>5</td>
+                <td>0</td>
+
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+                <td>3</td>
+
+                <td><b>2</b></td>
+                <td><b>3</b></td>
+            </tr>
+
+            <tr>
+                <td> <b>3</b> </td>
+                <td> <b>CSKA Moscow</b> </td>
+                <td>2</td>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>3</td>
+                <td>5</td>
+
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+                <td>4</td>
+
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>2</td>
+                <td>1</td>
+
+                <td><b>-2</b></td>
+                <td><b>3</b></td>
+            </tr>
+
+            <tr>
+                <td> <b>4</b> </td>
+                <td> <b>Benfica</b> </td>
+                <td>2</td>
+                <td>0</td>
+                <td>0</td>
+                <td>2</td>
+                <td>1</td>
+                <td>7</td>
+
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+                <td>2</td>
+
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+                <td>5</td>
+
+                <td><b>-6</b></td>
+                <td><b>0</b></td>
+            </tr>
+
+            </tbody>
+
+
+
+
+        </table>
+    </article>
+
+    <article>
+        <h1>GROUP G</h1>
+        <table>
+
+            <thead>
+
+            <tr>
+                <th>POS</th>
+                <th>TEAM</th>
+                <th>P</th>
+                <th>W</th>
+                <th>D</th>
+                <th>L</th>
+                <th>F</th>
+                <th>A</th>
+
+                <th>W</th>
+                <th>D</th>
+                <th>L</th>
+                <th>F</th>
+                <th>A</th>
+
+                <th>W</th>
+                <th>D</th>
+                <th>L</th>
+                <th>F</th>
+                <th>A</th>
+
+                <th>GD</th>
+                <th>PTS</th>
+            </tr>
+
+            </thead>
+
+            <tbody>
+
+            <tr>
+                <td><b>1</b></td>
+                <td><b>Manchester United</b></td>
+                <td>2</td>
+                <td>2</td>
+                <td>0</td>
+                <td>0</td>
+                <td>7</td>
+                <td>1</td>
+
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>3</td>
+                <td>0</td>
+
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>4</td>
+                <td>1</td>
+
+                <td><b>6</b></td>
+                <td><b>6</b></td>
+            </tr>
+
+            <tr>
+                <td> <b>2</b> </td>
+                <td> <b>FC Basel</b> </td>
+                <td>2</td>
+                <td>1</td>
+                <td>0</td>
+                <td>1</td>
+                <td>5</td>
+                <td>3</td>
+
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>5</td>
+                <td>0</td>
+
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+                <td>3</td>
+
+                <td><b>2</b></td>
+                <td><b>3</b></td>
+            </tr>
+
+            <tr>
+                <td> <b>3</b> </td>
+                <td> <b>CSKA Moscow</b> </td>
+                <td>2</td>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>3</td>
+                <td>5</td>
+
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+                <td>4</td>
+
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>2</td>
+                <td>1</td>
+
+                <td><b>-2</b></td>
+                <td><b>3</b></td>
+            </tr>
+
+            <tr>
+                <td> <b>4</b> </td>
+                <td> <b>Benfica</b> </td>
+                <td>2</td>
+                <td>0</td>
+                <td>0</td>
+                <td>2</td>
+                <td>1</td>
+                <td>7</td>
+
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+                <td>2</td>
+
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+                <td>5</td>
+
+                <td><b>-6</b></td>
+                <td><b>0</b></td>
+            </tr>
+
+            </tbody>
+
+
+
+
+        </table>
+    </article>
+
+    <article>
+        <h1>GROUP H</h1>
+        <table>
+
+            <thead>
+
+            <tr>
+                <th>POS</th>
+                <th>TEAM</th>
+                <th>P</th>
+                <th>W</th>
+                <th>D</th>
+                <th>L</th>
+                <th>F</th>
+                <th>A</th>
+
+                <th>W</th>
+                <th>D</th>
+                <th>L</th>
+                <th>F</th>
+                <th>A</th>
+
+                <th>W</th>
+                <th>D</th>
+                <th>L</th>
+                <th>F</th>
+                <th>A</th>
+
+                <th>GD</th>
+                <th>PTS</th>
+            </tr>
+
+            </thead>
+
+            <tbody>
+
+            <tr>
+                <td><b>1</b></td>
+                <td><b>Manchester United</b></td>
+                <td>2</td>
+                <td>2</td>
+                <td>0</td>
+                <td>0</td>
+                <td>7</td>
+                <td>1</td>
+
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>3</td>
+                <td>0</td>
+
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>4</td>
+                <td>1</td>
+
+                <td><b>6</b></td>
+                <td><b>6</b></td>
+            </tr>
+
+            <tr>
+                <td> <b>2</b> </td>
+                <td> <b>FC Basel</b> </td>
+                <td>2</td>
+                <td>1</td>
+                <td>0</td>
+                <td>1</td>
+                <td>5</td>
+                <td>3</td>
+
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>5</td>
+                <td>0</td>
+
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+                <td>3</td>
+
+                <td><b>2</b></td>
+                <td><b>3</b></td>
+            </tr>
+
+            <tr>
+                <td> <b>3</b> </td>
+                <td> <b>CSKA Moscow</b> </td>
+                <td>2</td>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>3</td>
+                <td>5</td>
+
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+                <td>4</td>
+
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>2</td>
+                <td>1</td>
+
+                <td><b>-2</b></td>
+                <td><b>3</b></td>
+            </tr>
+
+            <tr>
+                <td> <b>4</b> </td>
+                <td> <b>Benfica</b> </td>
+                <td>2</td>
+                <td>0</td>
+                <td>0</td>
+                <td>2</td>
+                <td>1</td>
+                <td>7</td>
+
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+                <td>2</td>
+
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+                <td>5</td>
+
+                <td><b>-6</b></td>
+                <td><b>0</b></td>
+            </tr>
+
+            </tbody>
+
+
+
+
+        </table>
+    </article>
+
+</main>
+
+
+
+
+</body>
+</html>
