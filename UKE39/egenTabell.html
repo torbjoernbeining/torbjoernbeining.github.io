@@ -12,13 +12,19 @@
 
         main{
             display: grid;
-            grid-template-columns: 1fr;
-            grid-gap: 16px;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-gap: 14px;
+        }
+
+        }
+        @media (max-width: 1000px) {
+            main {
+                grid-template-columns: 1fr;
+            }
         }
 
 
         h1{
-            font-family: Helvetica;
             font-size: 20px;
             background-color: #2a2f32;
             color: #fff;
