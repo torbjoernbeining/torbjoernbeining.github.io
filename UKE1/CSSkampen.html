@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS-kampen</title>
+    <style>
+
+        * {
+            transition: 1s;
+        }
+
+        #minCSS {
+            font-size: 16px;
+            font-family: sans-serif;
+            padding: 8px;
+            width: 400px;
+            height: 350px;
+            background-color: darkblue;
+            color: greenyellow;
+        }
+
+    </style>
+    <style id="styleElement"></style>
+</head>
+<body>
+
+    <textarea id="minCSS"></textarea>
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBT4gvY-CCjhW_5d9fkGQTRvM-7p1kRYjA",
+            authDomain: "superdatabasenmin.firebaseapp.com",
+            databaseURL: "https://superdatabasenmin.firebaseio.com",
+            projectId: "superdatabasenmin",
+            storageBucket: "superdatabasenmin.appspot.com",
+            messagingSenderId: "63611307785"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+    <script>
+
+        let db = firebase.database();
+        let stil = db.ref("stil");
+
+        let styleElement = document.getElementById("styleElement")
+        let minCSS = document.getElementById("minCSS")
+
+        function endreCSS() {
+            stil.set(minCSS.value);
+        }
+        function endreSide(snap){
+            styleElement.innerHTML = snap.val();
+            minCSS.value = snap.val();
+        }
+
+        minCSS.oninput = endreCSS;
+        stil.on("value", endreSide);
+
+    </script>
+
+</body>
+</html>
