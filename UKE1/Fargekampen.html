@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fargekampen</title>
+    <style>
+
+        body {
+            background-color: khaki;
+            transition: 1s;
+        }
+
+    </style>
+</head>
+<body>
+
+    <input type="text" id="velgFarge" placeholder="Velg farge">
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBT4gvY-CCjhW_5d9fkGQTRvM-7p1kRYjA",
+            authDomain: "superdatabasenmin.firebaseapp.com",
+            databaseURL: "https://superdatabasenmin.firebaseio.com",
+            projectId: "superdatabasenmin",
+            storageBucket: "superdatabasenmin.appspot.com",
+            messagingSenderId: "63611307785"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+    <script>
+
+        let velgFarge = document.getElementById("velgFarge");
+
+
+        let db = firebase.database();
+        let farge = db.ref("farge");
+
+        function byttFarge() {
+            farge.set(velgFarge.value);
+        }
+
+        function visFarge(snapshot) {
+            document.body.style.backgroundColor = snapshot.val();
+        }
+
+        velgFarge.onchange = byttFarge;
+
+        farge.on("value", visFarge);
+
+
+    </script>
+
+
+
+</body>
+</html>
