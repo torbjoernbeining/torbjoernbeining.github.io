@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SlideShow</title>
+    <style>
+
+        * {
+            margin: 0; /* Tar bort all marg*/
+        }
+
+        body {
+            margin: 0px;
+            background-color: #eee;
+            font-family: sans-serif;
+            color: #333;
+        }
+
+        h1{
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+
+        main {
+            max-width: 900px;
+            overflow: hidden;
+            margin: 0 auto; /*Midstillingstrikset*/
+            min-height: 100vh;
+            background-color: white;
+        }
+
+        .slides {
+            width: 500%;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            transition: 1s;
+        }
+
+        .slides > div {
+            text-align: center;
+        }
+
+        .slides > div > img{
+            width: 80%;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+
+        <h1>Slides</h1>
+
+        <div class="slides">
+            <div>
+                <img src="Img1.jpg" alt="">
+            </div>
+            <div>
+                <img src="Img2.jpg" alt="">
+            </div>
+            <div>
+                <img src="Img3.jpg" alt="">
+            </div>
+            <div>
+                <img src="Img4.jpg" alt="">
+            </div>
+            <div>
+                <img src="Img5.jpg" alt="">
+            </div>
+
+        </div>
+
+    </main>
+
+    <script>
+        let slides = document.querySelector(".slides");
+        let marg = 0;
+        document.onclick = function(klikk) {
+
+
+            if (klikk.clientX > innerWidth / 2) {
+                if (marg > -400) {
+                    marg = marg - 100;
+                } else {
+                    slides.animate([
+                        {transform: "translateX(20px)"},
+                        {transform: "translateX(0)"},
+                        {transform: "translateX(10px)"},
+                        {transform: "translateX(0)"}
+                    ], {
+                        duration: 200
+                    });
+                }
+            } else {
+                if (marg < 0) {
+                    marg = marg + 100;
+                } else {
+                    slides.animate([
+                        {transform: "translateX(-20px)"},
+                        {transform: "translateX(0)"},
+                        {transform: "translateX(-10px)"},
+                        {transform: "translateX(0)"}
+                    ], {
+                        duration: 200
+                    });
+                }
+            }
+            slides.style.marginLeft = marg + "%";
+        };
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+</html>

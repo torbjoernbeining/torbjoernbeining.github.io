@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Football</title>
+    <style>
+
+        body {background-color: #201A56}
+
+        body{
+            margin: 0;
+            display: grid;
+            min-height: 100vh;
+            grid-template-rows: auto 1fr auto;
+            font-family: sans-serif;
+            background-color: whitesmoke;
+        }
+
+        .menu {
+            background-color: #283D63;
+            display: grid;
+            grid-auto-flow: column;
+            margin-top: 35px;
+        }
+
+
+        .Toppmeny {
+            background-color: #113A44;
+            border-bottom: 1px solid black;
+            width: 100vw;
+            position: fixed;
+            z-index: 3;
+        }
+
+
+
+        body > header > div {
+            display: grid;
+            grid-auto-flow: column;
+        }
+
+        body > header > nav {
+            display: grid;
+            grid-auto-flow: column;
+
+        }
+
+        body > header > nav > div > a >.valgt {
+            transform: scale(1.3);
+        }
+
+
+        body > header > nav > a {
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+            color: #333;
+            border-bottom: 1px solid black;
+        }
+
+        body > header > nav > div{
+            display: grid;
+
+        }
+
+
+        body > header > nav > a:hover {
+            background-color:#eee;
+            filter: drop-shadow(0 5px 5px black);
+        }
+
+
+
+
+        body > header > div > div > a {
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+            color: #333;
+            margin-left: 10px;
+        }
+
+
+
+
+
+        body > header > nav> div > a:hover {
+            background-color: #283D63;
+
+        }
+        body > header > nav > div > a > img {
+            transition: transform 0.2s linear;
+        }
+
+        body > header > nav > div > a > img:hover {
+            transform: scale(1.3);
+        }
+
+        body > header > nav > div:first-child {
+            margin-left: 250px;
+        }
+
+        body > main > div > div{
+            max-width: 900px;
+            overflow: hidden;
+            margin: 30px auto; /*Midstillingstrikset*/
+            min-height: 100vh;
+            background-color: white;
+        }
+
+        main > article > img {
+            width: 100%;
+            height: 100%;
+        }
+
+        main {
+            max-width: 700px;
+            margin: auto;
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: repeat(12, 1fr);
+        }
+
+        main > * {
+            background-color: white;
+        }
+
+       main > p {
+            text-align: center;
+            padding: 10px;
+            font-family: sans-serif;
+            font-size: 18px;
+
+        }
+
+        .row-1{ grid-row: span 1;}
+        .row-2{ grid-row: span 2;}
+        .row-3{ grid-row: span 3;}
+        .row-4{ grid-row: span 4;}
+        .row-5{ grid-row: span 5;}
+        .row-6{ grid-row: span 6;}
+        .row-7{ grid-row: span 7;}
+        .row-8{ grid-row: span 8;}
+        .row-9{ grid-row: span 9;}
+        .row-10{ grid-row: span 10;}
+        .row-11{ grid-row: span 11;}
+        .row-12{ grid-row: span 12;}
+
+        .col-1{ grid-column: span 1;}
+        .col-2{ grid-column: span 2;}
+        .col-3{ grid-column: span 3;}
+        .col-4{ grid-column: span 4;}
+        .col-5{ grid-column: span 5;}
+        .col-6{ grid-column: span 6;}
+        .col-7{ grid-column: span 7;}
+        .col-8{ grid-column: span 8;}
+        .col-9{ grid-column: span 9;}
+        .col-10{ grid-column: span 10;}
+        .col-11{ grid-column: span 11;}
+        .col-12{ grid-column:span 12;}
+
+        body > footer {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            display: grid;
+            grid-gap: 20px;
+            grid-auto-flow: column;
+            text-align: center;
+            background-color: #7C7C7C;
+        }
+
+        body > footer > article> a {
+            text-decoration: none;
+            color: black;
+        }
+
+        @media (max-width: 480px){
+
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+
+    <div class="Toppmeny">
+
+        <div>
+            <a href="index.html"><img src="Min%20nettside/Tobsports.png" width="100px" height="30px" alt=""></a>
+        </div>
+
+    </div>
+
+
+    <nav class="menu">
+
+        <div>
+            <a href="Basketball.html"><img src="Min%20nettside/Nettside-02.png" height="80px" width="80px" alt=""></a>
+        </div>
+
+        <div>
+            <a href="Fotball.html"><img src="Min%20nettside/Nettside-01.png" class="valgt" height="80px" width="80px" alt=""></a>
+
+        </div>
+
+        <div>
+            <a href="AmerikanskFotball.html"><img src="Min%20nettside/Nettside-03.png" height="80px" width="80px" alt=""></a>
+        </div>
+
+    </nav>
+
+
+
+
+    <nav>
+        <a href="#">NEWS</a>
+        <a href="#">VIDEOS</a>
+        <a href="#">LIVE COMMENTATING</a>
+        <a href="#">GAMES</a>
+        <a href="#">LOGIN</a>
+    </nav>
+
+
+</header>
+
+<main>
+
+
+    <article class="col-12">
+        <img src="Bilder/Coutinho-Barca.png">
+        <p>Coutinho sold to Barcelona</p>
+    </article>
+
+    <article class="col-6 row-2">
+        <img src="Bilder/Premier%20League.jpg">
+        <p>Odds for who will win Premier League title</p>
+    </article>
+
+    <article class="col-6">
+        <img src="Bilder/Nottingham.JPG">
+        <p>Nottingham won a spectacular victory against Arsenal</p>
+    </article>
+
+    <article class="col-6">
+        <img src="Bilder/Bale%20double.jpg">
+        <p>Bale's double wasn't enough</p>
+    </article>
+
+
+
+
+
+
+</main>
+
+<footer>
+    <article>
+        <p>Contact us:</p>
+        <a href="#">E-mail</a> <br> <br>
+        <a href="#">Live support</a> <br> <br>
+        <a href="#">Facebook</a> <br> <br>
+
+    </article>
+
+    <article>
+        <p>All Rights Reserved®</p>
+    </article>
+
+    <article>
+
+        <p>Information about our website:</p> <br>
+        <p>This website is created to give an inlook into certain sports.</p>
+        <p>It was created in 2017 by a brilliant man named Torbjørn.</p>
+        <p>It is based off of actual events.</p><br>
+    </article>
+</footer>
+
+</body>
+</html>

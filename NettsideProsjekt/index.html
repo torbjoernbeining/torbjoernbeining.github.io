@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TobSports</title>
+    <link rel="shortcut icon" href="Min%20nettside/Ikoner-04.png" type="image/gif" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        * {box-sizing:border-box}
+
+        /* Slideshow container */
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+        }
+
+        /* Hide the images by default */
+        .mySlides {
+            display: none;
+        }
+
+        /* Next & previous buttons */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: darkgrey;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+        }
+
+        /* Position the "next button" to the right */
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        /* Caption text */
+        body > main > div > div >.text {
+            color: black;
+            font-size: 20px;
+            font-family: sans-serif;
+            font-weight: bold;
+            padding: 20px 0px;
+            position: relative;
+            bottom: 8px;
+            left: 41%;
+        }
+
+
+        /* The dots/bullets/indicators */
+        .dot {
+            cursor:pointer;
+            height: 15px;
+            width: 15px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+            margin: auto;
+        }
+
+        .active, .dot:hover {
+            background-color: #717171;
+        }
+
+        /* Fading animation */
+        .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 1.5s;
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @-webkit-keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1}
+        }
+
+        @keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1}
+        }
+
+
+        body{
+            margin: 0;
+            display: grid;
+            min-height: 100vh;
+            grid-template-rows: auto 1fr auto;
+            font-family: sans-serif;
+            background-color: whitesmoke;
+        }
+
+        .menu {
+            background-color: #283D63;
+            display: grid;
+            grid-auto-flow: column;
+            margin-top: 35px;
+        }
+
+
+        .Toppmeny {
+            background-color: #113A44;
+            border-bottom: 1px solid black;
+            width: 100vw;
+            position: fixed;
+            z-index: 3;
+        }
+
+
+
+        body > header > div {
+            display: grid;
+            grid-auto-flow: column;
+        }
+
+        body > header > nav {
+            display: grid;
+            grid-auto-flow: column;
+
+        }
+
+        body > main > div > div > img {
+            filter: drop-shadow(0 5px 5px black);
+        }
+
+        body > header > nav > a {
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+            color: #333;
+            border-bottom: 1px solid black;
+        }
+
+        body > header > nav > div{
+            display: grid;
+
+        }
+
+
+        body > header > nav > a:hover {
+            background-color:#eee;
+            filter: drop-shadow(0 5px 5px black);
+        }
+
+
+
+
+        body > header > div > div > a {
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+            color: #333;
+            margin-left: 10px;
+        }
+
+        body > main > div > div > img {
+            width: 700px;
+            height: 580px;
+        }
+
+
+
+
+        body > header > nav> div > a:hover {
+            background-color: #283D63;
+
+        }
+        body > header > nav > div > a > img {
+            transition: transform 0.2s linear;
+        }
+
+        body > header > nav > div > a > img:hover {
+            transform: scale(1.3);
+        }
+
+        body > header > nav > div:first-child {
+            margin-left: 250px;
+        }
+
+        body > main > div > div{
+            max-width: 900px;
+            overflow: hidden;
+            margin: 30px auto; /*Midstillingstrikset*/
+            min-height: 100vh;
+            background-color: white;
+        }
+
+
+
+
+        main > article > img {
+            width: 100%;
+        }
+
+        main > article {
+            max-width: 700px;
+            margin: auto;
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: repeat(1fr);
+            padding: 20px;
+        }
+
+        main > article > * {
+            background-color: white;
+        }
+
+        main > article > p {
+            text-align: center;
+            padding: 10px;
+            font-family: sans-serif;
+            font-size: 18px;
+
+        }
+
+        main > article {
+            padding: 20px;
+            margin: 0;
+        }
+
+        .row-1{ grid-row: span 1;}
+        .row-2{ grid-row: span 2;}
+        .row-3{ grid-row: span 3;}
+        .row-4{ grid-row: span 4;}
+        .row-5{ grid-row: span 5;}
+        .row-6{ grid-row: span 6;}
+        .row-7{ grid-row: span 7;}
+        .row-8{ grid-row: span 8;}
+        .row-9{ grid-row: span 9;}
+        .row-10{ grid-row: span 10;}
+        .row-11{ grid-row: span 11;}
+        .row-12{ grid-row: span 12;}
+
+        .col-1{ grid-column: span 1;}
+        .col-2{ grid-column: span 2;}
+        .col-3{ grid-column: span 3;}
+        .col-4{ grid-column: span 4;}
+        .col-5{ grid-column: span 5;}
+        .col-6{ grid-column: span 6;}
+        .col-7{ grid-column: span 7;}
+        .col-8{ grid-column: span 8;}
+        .col-9{ grid-column: span 9;}
+        .col-10{ grid-column: span 10;}
+        .col-11{ grid-column: span 11;}
+        .col-12{ grid-column:span 12;}
+
+        body > footer {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            display: grid;
+            grid-gap: 20px;
+            grid-auto-flow: column;
+            text-align: center;
+            background-color: #7C7C7C;
+        }
+
+        body > footer > article> a {
+            text-decoration: none;
+            color: black;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<header>
+
+    <div class="Toppmeny">
+
+        <div>
+            <a href="index.html"><img src="Min%20nettside/Tobsports.png" width="100px" height="30px" alt=""></a>
+        </div>
+
+    </div>
+
+
+    <nav class="menu">
+
+        <div>
+            <a href="Fotball.html"><img src="Min%20nettside/Nettside-01.png" height="80px" width="80px" alt=""></a>
+
+        </div>
+
+        <div>
+            <a href="Basketball.html"><img src="Min%20nettside/Nettside-02.png" height="80px" width="80px" alt=""></a>
+        </div>
+
+        <div>
+            <a href="AmerikanskFotball.html"><img src="Min%20nettside/Nettside-03.png" height="80px" width="80px" alt=""></a>
+        </div>
+
+    </nav>
+
+
+
+
+    <nav>
+        <a href="#">NEWS</a>
+        <a href="#">VIDEOS</a>
+        <a href="#">LIVE COMMENTATING</a>
+        <a href="#">GAMES</a>
+        <a href="#">LOGIN</a>
+    </nav>
+
+
+</header>
+
+<main>
+
+
+
+    <div class="slideshow-container">
+
+
+        <div class="mySlides fade">
+            <img src="Bilder/Coutinho-Barca.jpg" style="width:100%">
+            <div class="text">Coutinho has signed for Barcelona</div>
+        </div>
+
+        <div class="mySlides fade">
+            <img src="Bilder/Richie.jpg" style="width:100%">
+            <div class="text">Richie Incognito accused of racial slurs</div>
+        </div>
+
+        <div class="mySlides fade">
+            <img src="Bilder/James%20Harden.jpg" style="width:100%">
+            <div class="text">Rockets are blasting off in NBA</div>
+        </div>
+
+        <div class="mySlides fade">
+            <img src="Bilder/LiAngelo-Lamelo-Ball.jpg" style="width:100%">
+            <div class="text">Liangelo and Lamelo to make NBA debut</div>
+        </div>
+
+        <div class="mySlides fade">
+            <img src="Bilder/Bale%20double.jpg" style="width:100%">
+            <div class="text">Real Madrid only managed draw against Celta Vigo</div>
+        </div>
+
+        <div class="mySlides fade">
+            <img src="Bilder/Van-dijk.jpg" style="width:100%">
+            <div class="text">Van Dijk to liverpool for 75 million Pounds</div>
+        </div>
+
+        <div class="mySlides fade">
+            <img src="Bilder/Draft.jpg" style="width:100%">
+            <div class="text">NFL draft picks closing in as regular season soon ends</div>
+        </div>
+
+        <div class="mySlides fade">
+            <img src="Bilder/Jalen.jpg" style="width:100%">
+            <div class="text">Jalen Ramsey impressed in Jaguars victory</div>
+        </div>
+
+
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+
+
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+        <span class="dot" onclick="currentSlide(6)"></span>
+        <span class="dot" onclick="currentSlide(7)"></span>
+        <span class="dot" onclick="currentSlide(8)"></span>
+        <span class="dot" onclick="currentSlide(9)"></span>
+    </div>
+
+    <article class="col-12">
+        <img src="Bilder/Coutinho-Barca.png">
+        <p>Coutinho sold to Barcelona</p>
+    </article>
+
+    <article class="col-6 row-2">
+        <img src="Bilder/Bale%20double.jpg">
+        <p>Bale's double wasn't enough to secure 3 points</p>
+    </article>
+
+    <article class="col-6">
+        <img src="">
+        <p></p>
+
+    </article>
+
+    <article class="col-6">
+        <img src="orvieto.JPG">
+        <p>Kirken i Orvieto</p>
+    </article>
+
+
+
+</main>
+
+<footer>
+    <article>
+        <p>Contact us:</p>
+        <a href="#">E-mail</a> <br> <br>
+        <a href="#">Live support</a> <br> <br>
+        <a href="#">Facebook</a> <br> <br>
+
+    </article>
+
+    <article>
+        <p>All Rights Reserved®</p>
+    </article>
+
+    <article>
+
+        <p>Information about our website:</p> <br>
+        <p>This website is created to give an inlook into certain sports.</p>
+        <p>It was created in 2017 by a brilliant man named Torbjørn.</p>
+        <p>It is based off of actual events.</p><br>
+    </article>
+</footer>
+
+<script>
+
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Next/previous controls
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+    }
+
+</script>
+
+
+</body>
+</html>
