@@ -116,11 +116,11 @@
         }
 
         main {
-            max-width: 700px;
+            max-width:900px;
             margin: auto;
             display: grid;
             grid-gap: 10px;
-            grid-template-columns: repeat(12, 1fr);
+            grid-template-columns: repeat(1fr);
         }
 
         main > * {
@@ -176,10 +176,21 @@
             color: black;
         }
 
-        @media (max-width: 480px){
+        @media (max-width: 870px){
+
+            body > header > nav > div:first-child {
+                margin-left: 200px;
+            }
 
         }
 
+        @media (max-width: 400px){
+
+            body > header > nav > div:first-child {
+                margin-left: 35px;
+            }
+
+        }
     </style>
 </head>
 <body>
@@ -229,12 +240,12 @@
 <main>
 
 
-    <article class="col-12">
+    <article class="col-6">
         <img src="Bilder/Coutinho-Barca.png">
         <p>Coutinho sold to Barcelona</p>
     </article>
 
-    <article class="col-6 row-2">
+    <article class="col-6">
         <img src="Bilder/Premier%20League.jpg">
         <p>Odds for who will win Premier League title</p>
     </article>
@@ -246,7 +257,7 @@
 
     <article class="col-6">
         <img src="Bilder/Bale%20double.jpg">
-        <p>Bale's double wasn't enough</p>
+        <p>Bale's double wasn't enough to secure Madrid 3 points</p>
     </article>
 
 

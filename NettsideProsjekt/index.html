@@ -209,11 +209,11 @@
         }
 
         main > article {
-            max-width: 700px;
+            max-width: 800px;
             margin: auto;
             display: grid;
             grid-gap: 10px;
-            grid-template-columns: repeat(1fr);
+            grid-template-columns: repeat(2fr);
             padding: 20px;
         }
 
@@ -275,6 +275,48 @@
             color: black;
         }
 
+        @media (max-width: 870px){
+
+            body > header > nav > div:first-child {
+                margin-left: 200px;
+            }
+
+
+
+        }
+
+        @media (max-width: 630px){
+            body > main > div > div >.text {
+                color: black;
+                font-size: 15px;
+                font-family: sans-serif;
+                font-weight: bold;
+                padding: 20px 0px;
+                position: relative;
+                bottom: 8px;
+                left: 41%;
+            }
+        }
+
+
+        @media (max-width: 400px){
+
+            body > header > nav > div:first-child {
+                margin-left: 35px;
+            }
+
+            body > main > div > div >.text {
+                color: black;
+                font-size: 12px;
+                font-family: sans-serif;
+                font-weight: bold;
+                padding: 20px 0px;
+                position: relative;
+                bottom: 8px;
+                left: 41%;
+            }
+
+        }
 
     </style>
 </head>
@@ -400,14 +442,14 @@
     </article>
 
     <article class="col-6">
-        <img src="">
-        <p></p>
+        <img src="Bilder/Draft.jpg">
+        <p>NFL draft picks closing in as regular season soon ends</p>
 
     </article>
 
     <article class="col-6">
-        <img src="orvieto.JPG">
-        <p>Kirken i Orvieto</p>
+        <img src="Bilder/Isaiah-Thomas.jpg">
+        <p>Isaiah Thomas is progressing at Cleveland Cavs</p>
     </article>
 
 

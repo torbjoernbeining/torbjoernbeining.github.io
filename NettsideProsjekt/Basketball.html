@@ -125,7 +125,7 @@
             margin: auto;
             display: grid;
             grid-gap: 10px;
-            grid-template-columns: repeat(12, 1fr);
+            grid-template-columns: repeat(1fr);
         }
 
         main > * {
@@ -179,6 +179,33 @@
         body > footer > article> a {
             text-decoration: none;
             color: black;
+        }
+
+        @media (max-width: 480px){
+            main {
+                max-width: 700px;
+                margin: auto;
+                display: grid;
+                grid-gap: 10px;
+                grid-template-columns: repeat(1fr);
+            }
+
+        }
+
+        @media (max-width: 870px){
+
+            body > header > nav > div:first-child {
+                margin-left: 200px;
+            }
+
+        }
+
+        @media (max-width: 400px){
+
+            body > header > nav > div:first-child {
+                margin-left: 35px;
+            }
+
         }
 
     </style>

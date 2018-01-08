@@ -121,11 +121,11 @@
         }
 
         main {
-            max-width: 700px;
+            max-width: 900px;
             margin: auto;
             display: grid;
             grid-gap: 10px;
-            grid-template-columns: repeat(12, 1fr);
+            grid-template-columns: repeat(1fr);
         }
 
         main > * {
@@ -181,6 +181,22 @@
             text-decoration: none;
             color: black;
         }
+
+        @media (max-width: 870px){
+
+            body > header > nav > div:first-child {
+                margin-left: 200px;
+            }
+
+        }
+
+        @media (max-width: 400px){
+
+            body > header > nav > div:first-child {
+                margin-left: 35px;
+            }
+
+        }
     </style>
 </head>
 <body>
@@ -229,12 +245,12 @@
 
 <main>
 
-    <article class="col-12">
+    <article class="col-6">
         <img src="Bilder/Richie.jpg">
         <p>Richie Incognito accused of Racial slurs</p>
     </article>
 
-    <article class="col-6 row-2">
+    <article class="col-6">
         <img src="Bilder/Draft.jpg">
         <p>NFL draft picks closing in as regular season soon ends</p>
     </article>
