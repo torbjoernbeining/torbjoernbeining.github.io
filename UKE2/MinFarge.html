@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Hva er din farge?</title>
+    <style>
+        body {
+            background-color: black;
+        }
+
+        header{
+            padding-bottom: 8px;
+        }
+        #rutenett {
+            display: grid;
+            grid-template-columns: repeat(60, 1fr);
+            grid-auto-rows: 20px;
+            grid-gap: 2px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <input type="color" id="inpFarge">
+    </header>
+
+    <main id="rutenett">
+
+
+
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBT4gvY-CCjhW_5d9fkGQTRvM-7p1kRYjA",
+            authDomain: "superdatabasenmin.firebaseapp.com",
+            databaseURL: "https://superdatabasenmin.firebaseio.com",
+            projectId: "superdatabasenmin",
+            storageBucket: "superdatabasenmin.appspot.com",
+            messagingSenderId: "63611307785"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+
+    <script>
+
+        const inpFarge = document.getElementById("inpFarge");
+        const rutenett = document.getElementById("rutenett");
+
+        const db = firebase.database();
+        const alleFargene = db.ref("alleFargene");
+
+        function lagreFarge() {
+            alleFargene.push(inpFarge.value);
+        }
+
+        function visFarge(snap){
+            const rute = document.createElement("div");
+            rute.style.backgroundColor = snap.val();
+            rutenett.appendChild(rute);
+        }
+
+        inpFarge.onchange = lagreFarge;
+        alleFargene.on("child_added", visFarge);
+
+
+
+    </script>
+
+
+
+
+</body>
+</html>
