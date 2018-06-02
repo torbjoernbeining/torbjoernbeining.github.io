@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Slider</title>
+</head>
+<body>
+    <input type="range" id="sliderPris" min="0" max="100" value="30">
+    <label id="visTall">30</label>
+
+
+    <script>
+
+        const sliderPris = document.getElementById("sliderPris");
+        const visTall = document.getElementById("visTall");
+
+        function visPokemons(snap){
+
+            const pokemon = snap.val();
+
+            if(pokemon.price > sliderPris.value) {
+
+            }
+
+        }
+
+        sliderPris.oninput = function(){
+            visTall.innerHTML = sliderPris.value;
+
+
+
+        }
+
+    </script>
+</body>
+</html>

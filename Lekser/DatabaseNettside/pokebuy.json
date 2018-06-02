@@ -1,0 +1,22 @@
+
+  {
+  "Chari1": {
+    "name": "Charizard",
+    "price": 1000,
+    "shipping": 5,
+    "type": "fire",
+    "year": 1999,
+    "psa": 8,
+    "img": "Nettside%20bilder/Charizard.jpg"
+  },
+  "Bulba2": {
+      "name": "Charizard",
+      "price": 1000,
+      "shipping": 5,
+      "type": "fire",
+      "year": 1999,
+      "psa": 8,
+      "img": "Nettside%20bilder/Charizard.jpg"
+  },
+
+}

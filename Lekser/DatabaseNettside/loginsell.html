@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sample FirebaseUI App</title>
+    <link rel="stylesheet" href="CSS/header.css">
+    <link rel="stylesheet" href="CSS/footer.css">
+
+    <style>
+
+
+
+        #boble {
+            width: 500px;
+            height: 180px;
+            background-color: #ffcb05;
+            border-radius: 25px;
+            margin: 20px auto;
+            text-align: center;
+            align-items: center;
+            font-family: sans-serif;
+            color: #3c5aa6;
+            padding: 20px;
+        }
+
+        #moon {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            box-shadow: 30px 30px 0 0 #ffcb05;
+            margin-left: -120px;
+            margin-top: -75px;
+            transform: rotate(-20deg);
+        }
+
+
+
+        #sellpoke {
+            background-color: #283D63;
+            color: white;
+        }
+
+        #pikachu > img {
+            width: 400px;
+            height: 300px;
+            margin-left: 50px;
+        }
+
+        #firebaseui-auth-container {
+        }
+
+    </style>
+    <!-- *******************************************************************************************
+       * TODO(DEVELOPER): Paste the initialization snippet from:
+       * Firebase Console > Overview > Add Firebase to your web app. *
+       ***************************************************************************************** -->
+
+
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBT4gvY-CCjhW_5d9fkGQTRvM-7p1kRYjA",
+            authDomain: "superdatabasenmin.firebaseapp.com",
+            databaseURL: "https://superdatabasenmin.firebaseio.com",
+            projectId: "superdatabasenmin",
+            storageBucket: "superdatabasenmin.appspot.com",
+            messagingSenderId: "63611307785"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.7.0/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.7.0/firebaseui.css" />
+    <script type="text/javascript">
+        // FirebaseUI config.
+        var uiConfig = {
+            signInSuccessUrl: 'sell3.html',
+            signInOptions: [
+                // Leave the lines as is for the providers you want to offer your users.
+                firebase.auth.GoogleAuthProvider.PROVIDER_ID
+            ],
+            // Terms of service url.
+            tosUrl: '<your-tos-url>'
+        };
+
+        // Initialize the FirebaseUI Widget using Firebase.
+        var ui = new firebaseui.auth.AuthUI(firebase.auth());
+        // The start method will wait until the DOM is loaded.
+        ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
+</head>
+<body>
+
+<header>
+
+    <div class="overmeny">
+        <a href="index.html"><img src="Nettside%20bilder/Poketrader.png" style="max-width: 250px"></a>
+    </div>
+
+
+
+
+    <div class="undermeny">
+
+
+        <a href="pokebuy.html">Buy Pokémon Cards</a>
+        <a href="loginsell.html" id="sellpoke">Sell Pokémon Cards</a>
+        <a href="pokedb.html">Pokédatabase</a>
+        <a href="help.html">Help & Contact</a>
+
+
+    </div>
+
+
+</header>
+
+<main>
+
+    <div id="boble">
+        <h1>Sell your card now</h1>
+        <div id="firebaseui-auth-container"></div>
+        <div id="moon"></div>
+    </div>
+
+
+
+
+    <div id="pikachu">
+        <img src="Nettside%20bilder/Pikachu2.png">
+
+    </div>
+
+
+
+
+</main>
+
+<footer>
+
+    <div>
+
+        <article>
+            <img src="Nettside%20bilder/Payment.jpg"
+        </article>
+
+        <article>
+            <p>About us</p>
+        </article>
+
+        <article>
+            <p>This site is supported by Pokémon Nintendo</p>
+        </article>
+
+        <article>
+            <p>FAQ</p>
+        </article>
+
+
+    </div>
+
+
+
+
+</footer>
+
+
+
+</body>
+</html>

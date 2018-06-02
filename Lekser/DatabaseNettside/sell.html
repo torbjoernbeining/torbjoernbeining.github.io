@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sell Pokémon Cards</title>
+    <link rel="stylesheet" href="CSS/header.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-float.css">
+    <style>
+        body {
+             margin: 0;
+             background-color: whitesmoke;
+             font-family: sans-serif;
+
+         }
+
+        #skjema{
+            max-width: 700px;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+
+        #skjema {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-gap: 3px;
+        }
+
+        #skjema > button {
+            grid-column-start: 1;
+            grid-column-end: 4;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+
+    <div class="overmeny">
+        <a href="index.html">Pokétrader</a>
+    </div>
+
+
+
+
+    <div class="undermeny">
+
+
+        <a href="pokebuy.html">Buy Pokémon Cards</a>
+        <a href="sell.html">Sell Pokémon Cards</a>
+        <a href="pokedb.html">Pokédatabase</a>
+        <a href="help.html">Help & Contact</a>
+
+
+    </div>
+
+
+</header>
+
+<main>
+
+    <form id="skjema">
+
+        <div>
+            <input type="text" id="inpNavn" placeholder="Navn" required>
+        </div>
+
+        <div>
+            <input type="email" id="inpEpost" placeholder="E-post" required>
+        </div>
+
+        <div>
+            <input type="tel" id="inpTelefon" placeholder="Telefonnummer" required>
+        </div>
+
+
+        <div>
+            <input type="number" id="inpPris" placeholder="Pris i kr" required>
+        </div>
+
+        <div>
+            <input type="tel" id="inpTelefon" placeholder="Telefonnummer" required>
+        </div>
+
+        <div>
+            <input type="tel" id="inpTelefon" placeholder="Telefonnummer" required>
+        </div>
+        <button type="submit" class="button">Registrer ny kontakt</button>
+    </form>
+
+</main>
+
+
+
+
+
+
+</body>
+</html>

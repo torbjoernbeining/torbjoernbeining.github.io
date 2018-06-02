@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokemoner</title>
+    <link rel="shortcut icon" href="Nettside%20bilder/Pokeball.png" type="image/gif" />
+    <link rel="stylesheet" href="CSS/header.css">
+    <link rel="stylesheet" href="CSS/footer.css">
+    <style>
+
+
+
+
+
+        #pokemons {
+
+            width: 350px;
+            height: 400px;
+            margin: 50px auto;
+            margin-bottom: 250px;
+
+        }
+
+        #imgPokes {
+            height: 150px;
+            width: 150px;
+        }
+
+        #pokemons {
+            align-items: center;
+            text-align: center;
+        }
+
+        #pokemons > img{
+            width: 200px;
+            height: 200px;
+        }
+
+        #pokemons > p {
+            font-family: sans-serif;
+            font-weight: 10px;
+        }
+
+
+
+        #pokemons >  article.fire {
+            background-color: #e65822;
+            padding: 20px;
+        }
+
+        #pokemons > article.grass {
+            background-color: #a9f712;
+            padding: 20px;
+        }
+
+        #pokemons >  article.water {
+            background-color: #1073a2;
+            padding: 20px;
+
+        }
+
+        #pokemons >  article.psychic {
+            background-color: #8845c6;
+            padding: 20px;
+
+        }
+
+        #pokemons > article.dragon {
+            background-color: #a7132e;
+            padding: 20px;
+
+        }
+
+        #pokemons >  article.normal {
+            background-color: #deb19c;
+            padding: 20px;
+
+        }
+
+        #pokemons >  article.electric {
+            background-color: #ecda09;
+            padding: 20px;
+
+        }
+
+        #pokemons > article.ice {
+            background-color: #54cdd4;
+            padding: 20px;
+
+        }
+
+        #pokemons >  article.rock {
+            background-color: #959ca6;
+            padding: 20px;
+
+        }
+
+        #pokemons >  article.bug {
+            background-color: #b3d76e;
+            padding: 20px;
+
+        }
+
+        #pokemons >  article.fighting {
+            background-color: #f3a32a;
+            padding: 20px;
+
+        }
+
+        #pokemons > article.poison {
+            background-color: #a27498;
+            padding: 20px;
+
+        }
+        #pokemons > article.ghost {
+            background-color: #46345e;
+            padding: 20px;
+
+        }
+
+        #pokemons > article.ground {
+            background-color: #967b4b;
+            padding: 20px;
+
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="overmeny">
+            <a href="index.html"><img src="Nettside%20bilder/Poketrader.png" style="max-width: 250px"></a>
+        </div>
+
+
+
+
+        <div class="undermeny">
+
+
+            <a href="pokebuy.html">Buy Pokémon Cards</a>
+            <a href="loginsell.html">Sell Pokémon Cards</a>
+            <a href="pokedb.html">Pokédatabase</a>
+            <a href="help.html">Help & Contact</a>
+
+
+        </div>
+    </header>
+
+
+    <main id="main"></main>
+
+    <footer>
+        <div>
+
+            <article>
+                <img src="Nettside%20bilder/Payment.jpg"
+            </article>
+
+            <article>
+                <p>About us</p>
+            </article>
+
+            <article>
+                <p>This site is supported by Pokémon Nintendo</p>
+            </article>
+
+            <article>
+                <p>FAQ</p>
+            </article>
+
+
+        </div>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBT4gvY-CCjhW_5d9fkGQTRvM-7p1kRYjA",
+            authDomain: "superdatabasenmin.firebaseapp.com",
+            databaseURL: "https://superdatabasenmin.firebaseio.com",
+            projectId: "superdatabasenmin",
+            storageBucket: "superdatabasenmin.appspot.com",
+            messagingSenderId: "63611307785"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+    <script>
+
+        const db = firebase.database();
+        const pokemons = db.ref("pokemons");
+        const main = document.getElementById("main");
+
+
+        var url_string = window.location.href;
+        var url = new URL(url_string);
+        var navn = url.searchParams.get("navn");
+
+
+        function visPokemon(snap){
+            const pokemon = snap.val();
+
+
+            const evolvepokemon = pokemons.child(`${pokemon.evolveTo}`);
+            evolvepokemon.on("value", function(evolveSnap){
+                const evo = evolveSnap.val();
+                console.log(evo);
+
+                if(evo != null) {
+                    main.innerHTML = `
+                        <div id="pokemons">
+
+                        <article class="${pokemon.type}">
+
+
+                            <h1>${pokemon.name}</h1>
+                                 <img src="${pokemon.img}" id="imgPokes">
+                                 <h2>Moveset: ${pokemon.moves}</h2>
+                                 <h2>Attack: ${pokemon.attack}</h2>
+                                 <h2>Defense: ${pokemon.defense}</h2>
+                                 <h2>Probability of catching: ${pokemon.probability}</h2>
+                                 <p>Evolves to: <a href="Pokemoner.html?navn=${evo.name}">${evo.name}</a></p>
+                        </article></div>
+                    `;
+                } else {
+                    main.innerHTML = `
+                        <div id="pokemons">
+
+                        <article class="${pokemon.type}">
+
+
+                            <h1>${pokemon.name}</h1>
+                                 <img src="${pokemon.img}">
+                                 <h2>Moveset: ${pokemon.moves}</h2>
+                                 <h2>Attack: ${pokemon.attack}</h2>
+                                 <h2>Defense: ${pokemon.defense}</h2>
+                                 <h2>Probability of catching: ${pokemon.probability}</h2>
+                                 <p>This pokemon does not evolve</p>
+                        </article></div>
+                    `;
+                }
+
+
+
+            });
+
+
+        }
+
+
+        pokemons
+            .orderByChild("name")
+            .equalTo(navn)
+            .on("child_added", visPokemon);
+
+
+
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokedatabase</title>
+    <link rel="stylesheet" href="CSS/header.css">
+    <link rel="stylesheet" href="CSS/footer.css">
+
+    <style>
+
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+
+
+
+        body > header > div > a {
+            color: #ffcb05;
+            text-decoration: none;
+            padding: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+
+        #allePokemons {
+            margin: 10px;
+
+        }
+
+        section {
+            grid-gap: 8px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr ;
+        }
+
+        #sellpoke {
+            background-color: #283D63;
+            color: white;
+        }
+
+
+
+        #allePokemons > a > article {
+            position: relative;
+        }
+
+        #allePokemons > a > article {
+            background-color: white;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            padding: 10px;
+            margin: 20px;
+            box-shadow: 2px 2px lightgrey;
+        }
+
+        #allePokemons > a > article.fire {
+            background-color: #e65822;
+        }
+
+        #allePokemons > a > article.grass {
+            background-color: #a9f712 ;
+        }
+
+        #allePokemons > a > article.water {
+            background-color: #1073a2;
+
+        }
+
+        #allePokemons > a > article.psychic {
+            background-color: #8845c6;
+
+        }
+
+        #allePokemons > a > article.dragon {
+            background-color: #a7132e;
+
+        }
+
+        #allePokemons > a > article.normal {
+            background-color: #deb19c;
+
+        }
+
+        #allePokemons > a > article.electric {
+            background-color: #ecda09;
+
+        }
+
+        #allePokemons > a > article.ice {
+            background-color: #54cdd4;
+
+        }
+
+        #allePokemons > a > article.rock {
+            background-color: #959ca6;
+
+        }
+
+        #allePokemons > a > article.bug {
+            background-color: #b3d76e;
+
+        }
+
+        #allePokemons > a > article.fighting {
+            background-color: #f3a32a;
+
+        }
+
+        #allePokemons > a > article.poison {
+            background-color: #a27498;
+
+        }
+        #allePokemons > a > article.ghost {
+            background-color: #46345e;
+
+        }
+
+        #allePokemons > a > article.ground {
+            background-color: #967b4b;
+
+        }
+
+        a{
+            text-decoration: none;
+            color: black;
+        }
+
+
+        h1 {
+            margin-left: 500px;
+        }
+
+        #allePokemons > a > article > img {
+            max-height: 170px;
+        }
+
+        #allePokemons > a > article > h2 {
+            font-family: sans-serif;
+            font-size: 25px;
+            margin: auto;
+            font-weight: 900;
+            text-align: center;
+        }
+
+
+
+
+
+    </style>
+
+</head>
+<body>
+
+    <header>
+
+        <div class="overmeny">
+            <a href="index.html"><img src="Nettside%20bilder/Poketrader.png" style="max-width: 250px"></a>
+        </div>
+
+
+
+
+        <div class="undermeny">
+
+
+            <a href="pokebuy.html">Buy Pokémon Cards</a>
+            <a href="loginsell.html">Sell Pokémon Cards</a>
+            <a href="pokedb.html" id="sellpoke">Pokédatabase</a>
+            <a href="help.html">Help & Contact</a>
+
+
+        </div>
+
+
+    </header>
+
+    <main>
+
+
+        <section id="allePokemons">
+
+
+
+        </section>
+
+
+
+    </main>
+
+    <footer>
+
+        <div>
+
+            <article>
+                <img src="Nettside%20bilder/Payment.jpg"
+            </article>
+
+            <article>
+                <p>About us</p>
+            </article>
+
+            <article>
+                <p>This site is supported by Pokémon Nintendo</p>
+            </article>
+
+            <article>
+                <p>FAQ</p>
+            </article>
+
+
+        </div>
+
+
+
+
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBT4gvY-CCjhW_5d9fkGQTRvM-7p1kRYjA",
+            authDomain: "superdatabasenmin.firebaseapp.com",
+            databaseURL: "https://superdatabasenmin.firebaseio.com",
+            projectId: "superdatabasenmin",
+            storageBucket: "superdatabasenmin.appspot.com",
+            messagingSenderId: "63611307785"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+    <script>
+        //HTML-elementer
+        const allePokemons = document.getElementById("allePokemons");
+
+        // Firebase-kontakt
+        const db = firebase.database();
+        const pokemons = db.ref("pokemons");
+
+        function visPokemon(pokemonData) {
+            //Primærnøkkel
+            const key = pokemonData.key;
+            //Data om pokemons
+            const pokemons = pokemonData.val();
+
+            let article = `
+                <a href="Pokemoner.html?navn=${pokemons.name}"><article class="${pokemons.type}">
+                <h2>${pokemons.name}</h2>
+
+                
+                <img src="${pokemons.img}">
+
+                </article></a>
+            `;
+
+                allePokemons.innerHTML += article;
+
+        }
+
+        pokemons
+            .orderByChild("pokemons")
+            .on("child_added", visPokemon);
+
+    </script>
+
+</body>
+</html>

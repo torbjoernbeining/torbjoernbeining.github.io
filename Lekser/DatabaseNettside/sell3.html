@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sell Pokémon Cards</title>
+    <link rel="stylesheet" href="CSS/header.css">
+    <link rel="stylesheet" href="CSS/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-float.css">
+    <style>
+        body {
+            margin: 0;
+            background-color: whitesmoke;
+            font-family: sans-serif;
+
+        }
+
+        #skjema{
+            max-width: 700px;
+            margin-left: 50px;
+            margin-top: 100px;
+        }
+
+
+        #skjema > button {
+            grid-column-start: 1;
+            grid-column-end: 4;
+        }
+
+        #skjema > div > input {
+            width: 400px;
+        }
+
+
+        #skjema > div > h1 {
+            font-size: 16px;
+
+        }
+
+    </style>
+    <!-- *******************************************************************************************
+       * TODO(DEVELOPER): Paste the initialization snippet from:
+       * Firebase Console > Overview > Add Firebase to your web app. *
+       ***************************************************************************************** -->
+
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBT4gvY-CCjhW_5d9fkGQTRvM-7p1kRYjA",
+            authDomain: "superdatabasenmin.firebaseapp.com",
+            databaseURL: "https://superdatabasenmin.firebaseio.com",
+            projectId: "superdatabasenmin",
+            storageBucket: "superdatabasenmin.appspot.com",
+            messagingSenderId: "63611307785"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+    <script type="text/javascript">
+        initApp = function() {
+            firebase.auth().onAuthStateChanged(function(user) {
+                if (user) {
+                    // User is signed in.
+                    var displayName = user.displayName;
+                    var email = user.email;
+                    var emailVerified = user.emailVerified;
+                    var photoURL = user.photoURL;
+                    var uid = user.uid;
+                    var phoneNumber = user.phoneNumber;
+                    var providerData = user.providerData;
+                    user.getIdToken().then(function(accessToken) {
+
+
+                       // Nå er jeg logget inn
+                        const db = firebase.database();
+                        const kontakter = db.ref("kontakter");
+                        const storage = firebase.storage();
+
+                        const skjema = document.getElementById("skjema");
+
+                        const inpTelefon = document.getElementById("inpTelefon");
+                        const inpImage = document.getElementById("inpImage");
+                        const inpType = document.getElementById("inpType");
+                        const inpPsa = document.getElementById("inpPsa");
+                        const inpPris = document.getElementById("inpPris");
+                        const inpPokemon = document.getElementById("inpPokemon");
+                        
+
+                        const image_preview = document.getElementById("image_preview");
+
+                        inpImage.onchange = function() {
+                          let bilde = inpImage.files[0];
+                          console.log(bilde);
+                          image_preview.innerHTML = "Valgt bilde: " + bilde.name;
+                        };
+
+
+
+                        function registrerKontakt(evt) {
+                            evt.preventDefault();
+
+
+                            const filref = storage.ref("bilder/" + new Date());
+                            filref.put(inpImage.files[0])
+                                .then(function(bildeSnap){
+
+
+                                    const kontakt = {
+
+                                        telefon: inpTelefon.value,
+                                        uid: uid,
+                                        name: displayName,
+                                        navn: inpPokemon.value,
+                                        email: email,
+                                        photo: photoURL,
+                                        type: inpType.value,
+                                        psa: inpPsa.value,
+                                        bilde: bildeSnap.downloadURL
+                                        pris: inpPris.value
+                                    };
+                                    kontakter.push(kontakt);
+                                    skjema.reset();
+                                    inpTelefon.focus();
+
+                                    document.location.href = "pokebuy.html";
+
+                                });
+
+
+
+                        }
+
+                        function visKontakt(snap) {
+
+                            // Legg inn info om at posten er lagret
+
+                        }
+
+
+                        kontakter.on("child_added", visKontakt);
+                        skjema.onsubmit = registrerKontakt;
+
+
+                    });
+
+
+                } else {
+                    // User is signed out.
+
+                }
+            }, function(error) {
+                console.log(error);
+            });
+        };
+
+        window.addEventListener('load', function() {
+            initApp()
+        });
+    </script>
+</head>
+<body>
+
+<header>
+
+
+    <div class="overmeny">
+        <a href="index.html"><img src="Nettside%20bilder/Poketrader.png" style="max-width: 250px"></a>
+    </div>
+
+</header>
+
+<main>
+
+    <form id="skjema">
+
+
+
+        <div>
+            <p>Put in Phone number here:</p>
+            <input type="tel" id="inpTelefon" placeholder="Phone number" required>
+        </div>
+
+        <br>
+
+        <div>
+            <p>Put in price of the card here:</p>
+            <input type="number" id="inpPris" placeholder="Price in $" required>
+        </div>
+
+        <br>
+
+        <div>
+            <p>Put in what type of pokemon here:</p>
+            <input type="text" id="inpType" placeholder="Type of pokemon" required>
+        </div>
+
+        <br>
+
+        <div>
+            <p>Put in PSA rating here:</p>
+            <input type="number" id="inpPsa" placeholder="PSA rating" required>
+        </div>
+
+        <br>
+
+        <div>
+            <p>Put in the name of the Pokémon here:</p>
+            <input type="text" id="inpPokemon" placeholder="Name of Pokémon" required>
+        </div>
+
+        <br>
+
+        <div class="input u-mb32">
+            <p>Select your image here:</p>
+            <div class="inputarea" data-list>
+            </div>
+            <div data-error-list></div>
+            <span class="hidden panel panel--error u-d1 u-ma0" data-identifier="image"></span>
+
+        </div>
+
+        <div class="u-mb8">
+            <a data-image-change class="file-input-button button button--cta" role="button" tabindex="0" data-controller="trackevent" data-trackevent-name="adin.add-image.click">
+                <span>ADD AN IMAGE</span>
+                <label for="inpImage">
+                    <img src="Nettside%20bilder/Pokeball.png" style="width: 90px ">
+                </label>
+                <div id="image_preview">SELECT IMAGE </div>
+                <input style="display: none" data-image-input type="file" id="inpImage" name="image" accept="image/*" aria-hidden="true" tabindex="-1" multiple />
+            </a>
+        </div>
+
+
+        <button type="submit" class="button">Put your card on the market</button>
+
+
+
+    </form>
+
+
+</main>
+
+<footer>
+
+    <div>
+
+        <article>
+            <img src="Nettside%20bilder/Payment.jpg"
+        </article>
+
+        <article>
+            <p>About us</p>
+        </article>
+
+        <article>
+            <p>This site is supported by pokemon nintendo</p>
+        </article>
+
+        <article>
+            <p>FAQ</p>
+        </article>
+
+    </div>
+
+
+
+
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sell Pokémon Cards</title>
+    <link rel="stylesheet" href="CSS/footer.css">
+    <link rel="stylesheet" href="CSS/header.css">
+    <style>
+
+
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+
+        body > header > div > a {
+            color: #ffcb05;
+            text-decoration: none;
+            padding: 12px;
+        }
+
+
+        #firebaseui-auth-container {
+            margin: auto;
+            text-align: center;
+            padding: 10px;
+        }
+
+        footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+
+    <div class="overmeny">
+        <a href="index.html">Pokétrader</a>
+    </div>
+
+
+
+
+    <div class="undermeny">
+
+
+        <a href="pokebuy.html">Buy Pokémon Cards</a>
+        <a href="sell.html">Sell Pokémon Cards</a>
+        <a href="pokedb.html">Pokédatabase</a>
+        <a href="help.html">Help & Contact</a>
+
+
+    </div>
+
+
+</header>
+
+
+<main>
+
+    <div id="firebaseui-auth-container"></div>
+
+
+</main>
+
+<footer>
+
+    <div>
+
+        <article>
+            <img src="Nettside%20bilder/Payment.jpg"
+        </article>
+
+        <article>
+            <p>Hei</p>
+        </article>
+
+        <article>
+            <p>This site is supported by pokemon nintendo</p>
+        </article>
+
+        <article>
+            <p>Hei</p>
+        </article>
+
+        <article>
+            <p>Info</p>
+        </article>
+
+    </div>
+
+
+
+
+</footer>
+
+
+
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBT4gvY-CCjhW_5d9fkGQTRvM-7p1kRYjA",
+        authDomain: "superdatabasenmin.firebaseapp.com",
+        databaseURL: "https://superdatabasenmin.firebaseio.com",
+        projectId: "superdatabasenmin",
+        storageBucket: "superdatabasenmin.appspot.com",
+        messagingSenderId: "63611307785"
+    };
+    firebase.initializeApp(config);
+</script>
+
+<script src="https://cdn.firebase.com/libs/firebaseui/2.6.0/firebaseui.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.6.0/firebaseui.css" />
+<script type="text/javascript">
+    // FirebaseUI config.
+    var uiConfig = {
+        signInSuccessUrl: 'sell.html',
+        signInOptions: [
+            // Leave the lines as is for the providers you want to offer your users.
+            firebase.auth.GoogleAuthProvider.PROVIDER_ID
+        ],
+        // Terms of service url.
+        tosUrl: '<your-tos-url>'
+    };
+
+    // Initialize the FirebaseUI Widget using Firebase.
+    var ui = new firebaseui.auth.AuthUI(firebase.auth());
+    // The start method will wait until the DOM is loaded.
+    ui.start('#firebaseui-auth-container', uiConfig);
+</script>
+
+
+
+</body>
+</html>

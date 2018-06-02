@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Buy Pokémon cards</title>
+    <link rel="stylesheet" href="CSS/header.css">
+    <link rel="stylesheet" href="CSS/footer.css">
+    <link rel="shortcut icon" href="Nettside%20bilder/Pokeball.png" type="image/gif" />
+    <style>
+
+
+
+
+        main > div {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        body > header > div > a {
+            color: #ffcb05;
+            text-decoration: none;
+            padding: 12px;
+        }
+
+        #pokebuy {
+            background-color: #283D63;
+            color: white;
+        }
+
+
+
+        /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+        @media screen and (max-height: 450px) {
+
+        }
+
+        @media screen and (max-width: 450px) {
+
+        }
+
+
+        #pokemonsBuy {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+
+         #allePokemons {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr ;
+             text-align: center;
+             border: solid 6px black ;
+             margin-top: 10px;
+             margin-bottom: 20px;
+             margin-left: 230px;
+             margin-right: 20px;
+             padding: 10px;
+
+             background-color: #dddddd;
+        }
+
+
+        #burger{
+            display: grid;
+            cursor: pointer;
+            width: 25px;
+            height: 25px;
+            align-content: space-between; /* Legger luft mellom delene av burgeren */
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+        #burger > div {
+            height: 3px;
+            background-color: black;
+        }
+
+        #menu {
+            background-color: lightgrey;
+            position: absolute;
+            width: 300px;
+            min-height: calc(100vh - 200px);
+            left: -300px;
+            top: 230px;
+            transition: 1s;
+
+        }
+
+        #menu > p {
+            margin-left: 20px;
+            font-family: sans-serif;
+            font-size: 20px;
+        }
+
+
+        #cb {
+            display: none;
+        }
+
+        #cb:checked ~ #menu {
+            left: 0;
+        }
+
+        #burger > div {
+            transition: 1s;
+        }
+
+        #cb:checked ~ #burger > div:first-child {
+            transform: translateY(10.7px) rotate(45deg);
+        }
+
+        #cb:checked ~ #burger > div:nth-child(2) {
+            opacity: 0;
+        }
+
+        #cb:checked ~ #burger > div:last-child {
+            transform: translateY(-10.7px) rotate(-45deg);
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+
+        <div class="overmeny">
+            <a href="index.html"><img src="Nettside%20bilder/Poketrader.png" style="max-width: 250px"></a>
+        </div>
+
+
+
+
+        <div class="undermeny">
+
+
+            <a href="pokebuy.html" id="pokebuy">Buy Pokémon Cards</a>
+            <a href="loginsell.html">Sell Pokémon Cards</a>
+            <a href="pokedb.html">Pokédatabase</a>
+            <a href="help.html">Help & Contact</a>
+
+
+        </div>
+
+
+    </header>
+
+    <main>
+
+
+
+        <input type="checkbox" id="cb">
+        <label for="cb" id="burger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </label>
+        <nav id="menu">
+
+            <p>Sort by Price</p>
+            <p>Sort by PSA</p>
+            <p>Sort by Type</p>
+
+
+        </nav>
+
+
+
+
+            <section id="allePokemons">
+
+
+
+            </section>
+
+
+
+
+
+
+
+    </main>
+
+
+
+    <footer>
+
+        <div>
+
+            <article>
+                <img src="Nettside%20bilder/Payment.jpg"
+            </article>
+
+            <article>
+                <p>About us</p>
+            </article>
+
+            <article>
+                <p>This site is supported by Pokémon Nintendo</p>
+            </article>
+
+            <article>
+                <p>FAQ</p>
+            </article>
+
+        </div>
+
+
+
+
+    </footer>
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBT4gvY-CCjhW_5d9fkGQTRvM-7p1kRYjA",
+            authDomain: "superdatabasenmin.firebaseapp.com",
+            databaseURL: "https://superdatabasenmin.firebaseio.com",
+            projectId: "superdatabasenmin",
+            storageBucket: "superdatabasenmin.appspot.com",
+            messagingSenderId: "63611307785"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+    <script>
+        //HTML-elementer
+        const allePokemons = document.getElementById("allePokemons");
+
+        // Firebase-kontakt
+        const db = firebase.database();
+        const kontakter = db.ref("kontakter");
+
+        function visPokemon(pokemonData) {
+            //Primærnøkkel
+            const key = pokemonData.key;
+            //Data om pokemons
+            const pokebuy = pokemonData.val();
+
+            let article = `
+                        <article class="${pokebuy.uid}">
+                <h2>${pokebuy.name}</h2>
+
+                <img src="${pokebuy.bilde}" style="width: 200px" height="265px">
+                <h3>$ ${pokebuy.name}</h3>
+                <h4>${pokebuy.psa}</h4>
+
+                </article>
+
+            `;
+
+            allePokemons.innerHTML += article;
+
+        }
+
+        kontakter.on("child_added", visPokemon);
+
+        pokebuy
+            .orderByChild("pokebuy")
+            .on("child_added", visPokemon);
+
+    </script>
+
+</body>
+</html>

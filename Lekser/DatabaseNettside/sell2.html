@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sell Pokémon Cards</title>
+    <link rel="stylesheet" href="CSS/header.css">
+    <link rel="stylesheet" href="CSS/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-float.css">
+    <style>
+        body {
+            margin: 0;
+            background-color: whitesmoke;
+            font-family: sans-serif;
+
+        }
+
+        #skjema{
+            max-width: 700px;
+            margin-left: 50px;
+            margin-top: 100px;
+        }
+
+
+        #skjema > button {
+            grid-column-start: 1;
+            grid-column-end: 4;
+        }
+
+        #skjema > div > input {
+            width: 400px;
+        }
+
+
+        #skjema > div > h1 {
+            font-size: 16px;
+
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+
+
+            <div class="overmeny">
+                <a href="index.html">Pokétrader</a>
+            </div>
+
+    </header>
+
+    <main>
+
+        <form id="skjema">
+
+            <div>
+                <h1>Navn</h1>
+                <input type="text" id="inpNavn" placeholder="Navn" required>
+            </div>
+
+            <div>
+                <input type="email" id="inpEpost" placeholder="E-post" required>
+            </div>
+
+            <div>
+                <input type="tel" id="inpTelefon" placeholder="Telefonnummer" required>
+            </div>
+
+
+            <div>
+                <input type="number" id="inpPris" placeholder="Pris i kr" required>
+            </div>
+
+            <div>
+                <input type="tel" id="inpTelefon" placeholder="Telefonnummer" required>
+            </div>
+
+            <div>
+                <input type="tel" id="inpTelefon" placeholder="Telefonnummer" required>
+            </div>
+
+            <div class="input u-mb32">
+                <div class="inputarea" data-list>
+                </div>
+                <div data-error-list></div>
+                <span class="hidden panel panel--error u-d1 u-ma0" data-identifier="image"></span>
+
+            </div>
+
+            <div class="u-mb8">
+                <a data-image-change class="file-input-button button button--cta" role="button" tabindex="0" data-controller="trackevent" data-trackevent-name="adin.add-image.click">
+                    <span>Legg til bilder</span>
+                    <input data-image-input type="file" id="inpImage" name="image" accept="image/*" aria-hidden="true" tabindex="-1" multiple />
+                </a>
+            </div>
+            </div>
+
+            <button type="submit" class="button">Legg ut kortet på markedet</button>
+
+
+
+        </form>
+
+
+    </main>
+
+    <footer>
+
+            <div>
+
+                <article>
+                    <img src="Nettside%20bilder/Payment.jpg"
+                </article>
+
+                <article>
+                    <p>Hei</p>
+                </article>
+
+                <article>
+                    <p>This site is supported by pokemon nintendo</p>
+                </article>
+
+                <article>
+                    <p></p>
+                </article>
+
+                <article>
+                    <p>Info</p>
+                </article>
+
+            </div>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBT4gvY-CCjhW_5d9fkGQTRvM-7p1kRYjA",
+            authDomain: "superdatabasenmin.firebaseapp.com",
+            databaseURL: "https://superdatabasenmin.firebaseio.com",
+            projectId: "superdatabasenmin",
+            storageBucket: "superdatabasenmin.appspot.com",
+            messagingSenderId: "63611307785"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+    <script>
+
+        const db = firebase.database();
+        const kontakter = db.ref("kontakter");
+
+        const skjema = document.getElementById("skjema");
+        const inpNavn = document.getElementById("inpNavn");
+        const inpEpost = document.getElementById("inpEpost");
+        const inpTelefon = document.getElementById("inpTelefon");
+        const inpImage = document.getElementById("inpImage");
+        const tbKontakter = document.getElementById("tbKontakter");
+
+
+        function registrerKontakt(evt) {
+            evt.preventDefault();
+            const kontakt = {
+                navn: inpNavn.value,
+                epost: inpEpost.value,
+                telefon: inpTelefon.value
+            };
+            kontakter.push(kontakt);
+            skjema.reset();
+            inpNavn.focus()
+        }
+
+        function visKontakt(snap) {
+            const kontakt = snap.val();
+            tbKontakter.innerHTML += `
+                <tr>
+                    <td>${kontakt.navn}</td>
+                    <td>${kontakt.epost}</td>
+                    <td>${kontakt.telefon}</td>
+                </tr>
+            `;
+
+        }
+
+
+        kontakter.on("child_added", visKontakt);
+        skjema.onsubmit = registrerKontakt;
+
+</body>
+</html>
