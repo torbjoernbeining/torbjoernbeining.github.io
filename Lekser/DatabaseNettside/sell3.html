@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="CSS/header.css">
     <link rel="stylesheet" href="CSS/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-float.css">
+    <link rel="shortcut icon" href="Nettside%20bilder/Pokeball.png" type="image/gif" />
     <style>
         body {
             margin: 0;
@@ -30,6 +31,9 @@
             width: 400px;
         }
 
+        #skjema > div > p {
+            font-weight: bold;
+        }
 
         #skjema > div > h1 {
             font-size: 16px;
@@ -115,7 +119,7 @@
                                         photo: photoURL,
                                         type: inpType.value,
                                         psa: inpPsa.value,
-                                        bilde: bildeSnap.downloadURL
+                                        bilde: bildeSnap.downloadURL,
                                         pris: inpPris.value
                                     };
                                     kontakter.push(kontakt);
@@ -191,21 +195,21 @@
 
         <div>
             <p>Put in what type of pokemon here:</p>
-            <input type="text" id="inpType" placeholder="Type of pokemon" required>
+            <input type="text" id="inpType" placeholder="Type of Pokémon" required>
         </div>
 
         <br>
 
         <div>
             <p>Put in PSA rating here:</p>
-            <input type="number" id="inpPsa" placeholder="PSA rating" required>
+            <input type="number" id="inpPsa" placeholder="PSA Rating" required>
         </div>
 
         <br>
 
         <div>
-            <p>Put in the name of the Pokémon here:</p>
-            <input type="text" id="inpPokemon" placeholder="Name of Pokémon" required>
+            <p>Put in the name of your ad here:</p>
+            <input type="text" id="inpPokemon" placeholder="Name of Ad" required>
         </div>
 
         <br>
@@ -229,6 +233,8 @@
                 <input style="display: none" data-image-input type="file" id="inpImage" name="image" accept="image/*" aria-hidden="true" tabindex="-1" multiple />
             </a>
         </div>
+
+        <br> <br>
 
 
         <button type="submit" class="button">Put your card on the market</button>

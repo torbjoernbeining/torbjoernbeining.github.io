@@ -86,10 +86,20 @@
 
         }
 
+        .details {
+            text-align: center;
+        }
+        .details > img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+        }
+
         #menu > p {
             margin-left: 20px;
             font-family: sans-serif;
             font-size: 20px;
+            cursor: pointer;
         }
 
 
@@ -156,9 +166,8 @@
         </label>
         <nav id="menu">
 
-            <p>Sort by Price</p>
-            <p>Sort by PSA</p>
-            <p>Sort by Type</p>
+            <p onclick="sorterPris()">Sort by Price</p>
+            <p onclick="sorterPsa()">Sort by PSA</p>
 
 
         </nav>
@@ -233,6 +242,9 @@
         const db = firebase.database();
         const kontakter = db.ref("kontakter");
 
+        let pris_stigende = true;
+        let psa_stigende = true;
+
         function visPokemon(pokemonData) {
             //Primærnøkkel
             const key = pokemonData.key;
@@ -241,12 +253,14 @@
 
             let article = `
                         <article class="${pokebuy.uid}">
-                <h2>${pokebuy.name}</h2>
+                <h2>${pokebuy.navn}</h2>
 
-                <img src="${pokebuy.bilde}" style="width: 200px" height="265px">
-                <h3>$ ${pokebuy.name}</h3>
-                <h4>${pokebuy.psa}</h4>
-
+                <img src="${pokebuy.bilde}" style="width: 200px" height="255px" >
+                <h3>$ ${pokebuy.pris}</h3>
+                <h4>PSA Rating: ${pokebuy.psa}</h4>
+                <div class="details">
+                    <img src="${pokebuy.photo}" title="Sold by ${pokebuy.name}">
+                </div>
                 </article>
 
             `;
@@ -255,11 +269,62 @@
 
         }
 
+        function visPokemonInvers(pokemonData) {
+            //Primærnøkkel
+            const key = pokemonData.key;
+            //Data om pokemons
+            const pokebuy = pokemonData.val();
+
+            let article = `
+                        <article class="${pokebuy.uid}">
+                <h2>${pokebuy.navn}</h2>
+
+                <img src="${pokebuy.bilde}" style="width: 200px" height="255px" >
+                <h3>$ ${pokebuy.pris}</h3>
+                <h4>PSA Rating: ${pokebuy.psa}</h4>
+                <div class="details">
+                    <img src="${pokebuy.photo}" title="Sold by ${pokebuy.name}">
+                </div>
+                </article>
+
+            `;
+
+            allePokemons.innerHTML = article + allePokemons.innerHTML;
+
+        }
+
+        function sorterPris() {
+            allePokemons.innerHTML = "";
+            if(pris_stigende) {
+                kontakter
+                    .orderByChild("pris")
+                    .on("child_added", visPokemon);
+            } else {
+                kontakter
+                    .orderByChild("pris")
+                    .on("child_added", visPokemonInvers);
+            }
+
+            pris_stigende = !pris_stigende;
+        }
+
+        function sorterPsa() {
+            allePokemons.innerHTML = "";
+            if(psa_stigende) {
+                kontakter
+                    .orderByChild("psa")
+                    .on("child_added", visPokemon);
+            } else {
+                kontakter
+                    .orderByChild("psa")
+                    .on("child_added", visPokemonInvers);
+            }
+            psa_stigende = !psa_stigende
+        }
+
         kontakter.on("child_added", visPokemon);
 
-        pokebuy
-            .orderByChild("pokebuy")
-            .on("child_added", visPokemon);
+
 
     </script>
 
